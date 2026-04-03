@@ -1,16 +1,615 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 3 - Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link href="./output.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="font-sans">
+    <!-- SAKLAR STATE — hidden checkbox, harus di atas header -->
+    <input type="checkbox" id="menuToggle" class="hidden peer" />
+
     <!-- ========== NAVBAR ========== -->
+    <header class="top-0 z-50 bg-black h-16 md:h-21">
+      <nav
+        class="flex items-center justify-between h-full px-4 md:px-10 lg:px-35"
+      >
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-[#FDFDFD]">Tech.</a>
+
+        <!-- Nav Links — hidden di mobile, tampilnya mulai dari tablet -->
+        <div class="hidden md:flex items-center gap-3">
+          <a
+            href="#who-we-are"
+            class="px-4 py-2 rounded-full text-sm font-normal text-[#FDFDFD]"
+            >About</a
+          >
+          <a
+            href="#what-we-do"
+            class="px-4 py-2 rounded-full text-sm font-normal text-[#FDFDFD]"
+            >Service</a
+          >
+          <a
+            href="#our-work"
+            class="px-4 py-2 rounded-full text-sm font-normal text-[#FDFDFD]"
+            >Our Work</a
+          >
+          <a
+            href="#meet-the-team"
+            class="px-4 py-2 rounded-full text-sm font-normal text-[#FDFDFD]"
+            >Team</a
+          >
+        </div>
+
+        <!-- Contact Us Button — hidden di mobile, tampilnya mulai tablet -->
+        <a
+          href="#collaborate"
+          class="hidden md:flex items-center justify-center w-40 h-11 bg-[#421ABC] rounded-full text-base font-semibold tracking-[-0.03em] text-white"
+        >
+          Contact Us
+        </a>
+
+        <!-- Hamburger Label — tampil di mobile, justru hidden mulai tablet, kebalikan dari yang tadi2 -->
+        <label
+          for="menuToggle"
+          class="flex items-center justify-center w-6 h-6 text-[#FDFDFD] md:hidden cursor-pointer"
+        >
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+            <rect width="18" height="2" fill="currentColor" />
+            <rect y="5" width="18" height="2" fill="currentColor" />
+            <rect y="10" width="18" height="2" fill="currentColor" />
+          </svg>
+        </label>
+      </nav>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY — muncul saat checkbox checked -->
+    <div
+      class="hidden peer-checked:flex flex-col fixed inset-0 bg-black z-100 md:hidden"
+    >
+      <!-- Header dalam overlay -->
+      <div class="flex items-center justify-between h-16 px-4">
+        <a href="#" class="text-2xl font-bold text-[#FDFDFD]">Tech.</a>
+
+        <!-- Tombol X = label yang sama, klik = uncheck = tutup menu -->
+        <label
+          for="menuToggle"
+          class="flex items-center justify-center w-6 h-6 text-[#FDFDFD] cursor-pointer"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </label>
+      </div>
+
+      <!-- Menu Items (top: 80px = 64px header + 16px gap) -->
+      <div class="flex flex-col gap-3 px-4 mt-4">
+        <a
+          href="#who-we-are"
+          class="flex items-center py-2 text-sm font-normal text-[#FDFDFD]"
+          >About</a
+        >
+        <a
+          href="#what-we-do"
+          class="flex items-center py-2 text-sm font-normal text-[#FDFDFD]"
+          >Service</a
+        >
+        <a
+          href="#our-work"
+          class="flex items-center py-2 text-sm font-normal text-[#FDFDFD]"
+          >Our Work</a
+        >
+        <a
+          href="#meet-the-team"
+          class="flex items-center py-2 text-sm font-normal text-[#FDFDFD]"
+          >Team</a
+        >
+
+        <!-- Contact Us Button -->
+        <a
+          href="#collaborate"
+          class="w-full h-12 flex items-center justify-center bg-[#421ABC] rounded-full text-sm font-semibold text-white"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
 
     <!-- ========== HERO SECTION ========== -->
 
+    <section
+      class="relative isolate flex justify-center items-start px-5 py-10 h-180 overflow-hidden bg-black bg-[linear-gradient(180deg,#000000_17.55%,rgba(33_10_94/0.7)_136.21%)] md:h-187.5 md:px-8 lg:items-center lg:justify-start lg:px-35 lg:h-187.5"
+    >
+      <!-- Hero Content -->
+      <div
+        class="relative flex flex-col items-center gap-6 w-full z-10 md:items-start md:max-w-140 xl:gap-12 xl:w-171.75 xl:shrink-0"
+      >
+        <!-- Hero Text -->
+        <div class="flex flex-col items-start gap-4 w-full">
+          <h1
+            class="w-full text-[40px] font-bold leading-12 tracking-[-0.03em] text-[#FDFDFD] lg:text-[56px] lg:leading-17"
+          >
+            Build with the <em>Future</em>.
+          </h1>
+
+          <p
+            class="w-full text-base font-normal leading-7.5 tracking-[-0.03em] text-[#717680] lg:text-xl lg:leading-8.5 lg:tracking-normal"
+          >
+            From building sleek websites and mobile apps to integrating AI
+            solutions, we help brands turn ideas into powerful digital
+            experiences that connect, engage, and scale.
+          </p>
+        </div>
+
+        <!-- Button -->
+        <button
+          type="button"
+          class="w-full h-12 flex items-center justify-center bg-[#421ABC] rounded-full text-sm font-semibold text-white md:max-w-88 lg:w-75 lg:text-base lg:tracking-[-0.03em]"
+        >
+          Let's Talk
+        </button>
+      </div>
+
+      <!-- Hero Image -->
+      <img
+        src="../assets/images/hand.png"
+        alt="Hand holding phone"
+        class="absolute z-1 w-77.25 h-auto left-1/2 -translate-x-1/2 bottom-0 md:w-96 md:left-[60%] lg:left-[75%] xl:left-auto xl:right-35 xl:top-3.75 xl:w-148.75 xl:translate-x-0"
+      />
+    </section>
+
+    <!-- ========== WHO WE ARE SECTION ========== -->
+    <section
+      id="who-we-are"
+      class="flex flex-col items-center px-5 py-10 gap-4 bg-black md:px-10 md:py-16 md:gap-6 lg:px-35 lg:py-20 lg:gap-8"
+    >
+      <h2
+        class="w-full text-[28px] font-bold leading-9.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-[40px] lg:leading-14 lg:tracking-[-0.03em]"
+      >
+        Who We Are
+      </h2>
+
+      <p
+        class="w-full text-lg font-semibold leading-7 text-center text-[#717680] lg:text-[32px] lg:leading-10.5 lg:tracking-[-0.02em]"
+      >
+        We're a group of tech students trained in
+        <strong class="text-[#FDFDFD]"
+          >building real-world digital products</strong
+        >. From coding to design, we
+        <strong class="text-[#FDFDFD]"
+          >craft modern solutions for modern problems</strong
+        >.
+      </p>
+    </section>
+
+    <!-- ========== WHAT WE DO SECTION ========== -->
+    <section
+      id="what-we-do"
+      class="flex flex-col items-center px-4 py-10 gap-6 bg-black -mt-px lg:px-35 lg:py-20 lg:gap-16"
+    >
+      <!-- Header Text -->
+      <div class="flex flex-col items-center gap-2 w-full lg:gap-4">
+        <h2
+          class="w-full text-[28px] font-bold leading-9.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-[40px] lg:leading-14 lg:tracking-[-0.03em]"
+        >
+          What We Do
+        </h2>
+        <p
+          class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-lg lg:leading-8 lg:tracking-[-0.03em]"
+        >
+          We offer simple tech solutions to help your ideas grow.
+        </p>
+      </div>
+
+      <!-- Services Grid: 2 kolom mobile lalu ntar 3 kolom desktop -->
+      <div class="grid grid-cols-2 gap-4 w-full lg:grid-cols-3 lg:gap-5">
+        <!-- Card: Web Development -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector1.svg"
+            alt="Web Development"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              Web Development
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              Modern websites using HTML, CSS, JavaScript, and frameworks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card: App Development -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector2.svg"
+            alt="App Development"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              App Development
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              Mobile and desktop apps tailored for your needs
+            </p>
+          </div>
+        </div>
+
+        <!-- Card: AI Integration -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector3.svg"
+            alt="AI Integration"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              AI Integration
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              Smart solutions using AI-powered tools and automation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card: UI/UX Design -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector4.svg"
+            alt="UI/UX Design"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              UI/UX Design
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              Clean and functional designs for better user experience.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card: Landing Page Design -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector5.svg"
+            alt="Landing Page Design"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              Landing Page Design
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              High-converting landing pages for your product or business.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card: CMS Integration -->
+        <div
+          class="flex flex-col items-center p-4 gap-5 border border-[#181D27] rounded-xl lg:p-6"
+        >
+          <img
+            src="../assets/icons/vector6.svg"
+            alt="CMS Integration"
+            class="w-12 h-12"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <h3
+              class="w-full text-lg font-bold leading-8 text-center text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >
+              CMS Integration
+            </h3>
+            <p
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+            >
+              Easy-to-manage websites with WordPress or Webflow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== OUR WORK SECTION ========== -->
+    <section
+      id="our-work"
+      class="flex flex-col items-center px-5 py-10 gap-6 -mt-px bg-black lg:px-35 lg:py-20 lg:gap-16"
+    >
+      <!-- Header Text -->
+      <div class="flex flex-col items-center gap-2 w-full lg:gap-4">
+        <h2
+          class="w-full text-[28px] font-bold leading-9.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-[40px] lg:leading-14 lg:tracking-[-0.03em]"
+        >
+          Our Work
+        </h2>
+        <p
+          class="w-full text-base font-normal leading-7.5 text-center tracking-[-0.03em] text-[#717680] lg:text-lg lg:leading-8"
+        >
+          See what we've built with passion and purpose
+        </p>
+      </div>
+
+      <!-- Portfolio: 1 kolom mobile → 3 kolom desktop -->
+      <div class="grid grid-cols-1 gap-5 w-full lg:grid-cols-3">
+        <!-- Card 1 -->
+        <div class="flex flex-col gap-3.25 lg:gap-5">
+          <div class="w-full aspect-square overflow-hidden rounded-2xl">
+            <img
+              src="../assets/images/portfolio-1.svg"
+              alt="Portofolio 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <span
+            class="text-base font-bold leading-7.5 tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >Portofolio 1</span
+          >
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex flex-col gap-3.25 lg:gap-5">
+          <div class="w-full aspect-square overflow-hidden rounded-2xl">
+            <img
+              src="../assets/images/portfolio-2.svg"
+              alt="Portofolio 2"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <span
+            class="text-base font-bold leading-7.5 tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >Portofolio 2</span
+          >
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex flex-col gap-3.25 lg:gap-5">
+          <div class="w-full aspect-square overflow-hidden rounded-2xl">
+            <img
+              src="../assets/images/portfolio-3.svg"
+              alt="Portofolio 3"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <span
+            class="text-base font-bold leading-7.5 tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+            >Portofolio 3</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MEET THE TEAM SECTION ========== -->
+    <section
+      id="meet-the-team"
+      class="flex flex-col items-center px-5 py-10 gap-8 -mt-px bg-black lg:px-35 lg:py-20 lg:gap-16"
+    >
+      <!-- Header Text -->
+      <div class="flex flex-col items-center gap-2 w-full lg:gap-4">
+        <h2
+          class="w-full text-[28px] font-bold leading-9.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-[40px] lg:leading-14 lg:tracking-[-0.03em]"
+        >
+          Meet the Team
+        </h2>
+        <p
+          class="w-full text-base font-normal leading-7.5 text-center tracking-[-0.03em] text-[#717680] lg:text-lg lg:leading-8"
+        >
+          A group of future-ready tech makers.
+        </p>
+      </div>
+
+      <!-- Team Members: 2 kolom mobile tapi kalo desktop jd 4 kolom -->
+      <div class="grid grid-cols-2 gap-x-5 gap-y-6 lg:grid-cols-4 lg:gap-x-14">
+        <!-- Card: Jasper Kim -->
+        <div class="flex flex-col items-center gap-3 lg:gap-5">
+          <img
+            src="../assets/images/jasper-kim-1.svg"
+            alt="Jasper Kim"
+            class="w-full aspect-square rounded-full object-cover xl:w-55 xl:h-55"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <span
+              class="w-full text-base font-bold leading-7.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+              >Jasper Kim</span
+            >
+            <span
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+              >Project Manager</span
+            >
+          </div>
+        </div>
+
+        <!-- Card: Alex Jonathan -->
+        <div class="flex flex-col items-center gap-3 lg:gap-5">
+          <img
+            src="../assets/images/alex-jonathan.svg"
+            alt="Alex Jonathan"
+            class="w-full aspect-square rounded-full object-cover xl:w-55 xl:h-55"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <span
+              class="w-full text-base font-bold leading-7.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+              >Alex Jonathan</span
+            >
+            <span
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+              >Full-stack Developer</span
+            >
+          </div>
+        </div>
+
+        <!-- Card: Mario Lopez -->
+        <div class="flex flex-col items-center gap-3 lg:gap-5">
+          <img
+            src="../assets/images/mario-lopez.svg"
+            alt="Mario Lopez"
+            class="w-full aspect-square rounded-full object-cover xl:w-55 xl:h-55"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <span
+              class="w-full text-base font-bold leading-7.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+              >Mario Lopez</span
+            >
+            <span
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+              >UI/UX Designer</span
+            >
+          </div>
+        </div>
+
+        <!-- Card: Jasper Kim (Data Scientist) -->
+        <div class="flex flex-col items-center gap-3 lg:gap-5">
+          <img
+            src="../assets/images/jasper-kim-2.svg"
+            alt="Jasper Kim"
+            class="w-full aspect-square rounded-full object-cover xl:w-55 xl:h-55"
+          />
+          <div class="flex flex-col items-center gap-1 w-full">
+            <span
+              class="w-full text-base font-bold leading-7.5 text-center tracking-[-0.02em] text-[#FDFDFD] lg:text-xl lg:leading-8.5 lg:tracking-[-0.03em]"
+              >Jasper Kim</span
+            >
+            <span
+              class="w-full text-sm font-normal leading-7 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+              >Data Scientist</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LET'S COLLABORATE SECTION -->
+    <section
+      id="collaborate"
+      class="flex flex-col items-center px-5 py-10 gap-6 bg-black lg:px-35 lg:pt-20 lg:pb-30 lg:gap-16"
+    >
+      <!-- Heading -->
+      <div class="flex flex-col items-center gap-3 w-full text-center lg:gap-4">
+        <h2
+          class="text-[28px] font-bold leading-9.5 tracking-[-0.02em] text-[#FDFDFD] lg:text-[40px] lg:leading-14 lg:tracking-[-0.03em]"
+        >
+          Let's Collaborate
+        </h2>
+        <p
+          class="text-base font-normal leading-7.5 tracking-[-0.03em] text-[#717680] lg:text-lg lg:leading-8"
+        >
+          Need a tech team? We're ready to help
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form class="flex flex-col gap-8 w-full lg:max-w-148 lg:gap-10">
+        <!-- Fields wrapper -->
+        <div class="flex flex-col gap-4 lg:gap-5">
+          <!-- Name Field -->
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-sm font-bold text-[#FDFDFD]"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+              class="w-full h-12 px-4 bg-black border border-[#252B37] rounded-xl text-sm font-normal text-[#FDFDFD] placeholder:text-[#717680] outline-none focus:border-[#421ABC]"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-sm font-bold text-[#FDFDFD]"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              class="w-full h-12 px-4 bg-black border border-[#252B37] rounded-xl text-sm font-normal text-[#FDFDFD] placeholder:text-[#717680] outline-none focus:border-[#421ABC]"
+            />
+          </div>
+
+          <!-- Message Field -->
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-bold text-[#FDFDFD]"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Enter your message"
+              required
+              class="w-full h-33.5 px-4 py-3 bg-black border border-[#252B37] rounded-xl text-sm font-normal text-[#FDFDFD] placeholder:text-[#717680] outline-none focus:border-[#421ABC] resize-none"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full h-11 flex items-center justify-center bg-[#421ABC] rounded-full text-sm font-semibold text-white lg:h-12 lg:text-base lg:tracking-[-0.03em]"
+        >
+          Send
+        </button>
+      </form>
+    </section>
+
     <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
+    <footer
+      class="flex flex-row items-center justify-center px-2 py-6 gap-2 border-t border-[#181D27] bg-black"
+    >
+      <p
+        class="text-xs font-normal leading-6 text-center text-[#717680] lg:text-base lg:leading-7.5 lg:tracking-[-0.03em]"
+      >
+        © 2025 Web Programming Hack. All rights reserved.
+      </p>
+    </footer>
   </body>
 </html>
